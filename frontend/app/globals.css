@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-montserrat);
+}
+
+/* ─── Design Tokens ─────────────────────────────────── */
+:root {
+  /* Inspiration palette — light airy fitness dashboard */
+  --bg-page: #eef2f7;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f7f9fc;
+  --border-card: #e2e8f0;
+
+  --text-heading: #1a202c;
+  --text-body: #374151;
+  --text-muted: #6b7280;
+  --text-label: #9ca3af;
+
+  --accent-yellow: #e8c74d;
+  /* dominant accent from inspiration */
+  --accent-green: #8cc63f;
+  /* secondary accent */
+  --accent-blue: #60a5fa;
+  --accent-rose: #f87171;
+  --accent-violet: #a78bfa;
+  --accent-cyan: #22d3ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+
+/* ─── Card ───────────────────────────────────────────── */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10), 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ─── iOS Slider ─────────────────────────────────────── */
+.ios-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 99px;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.ios-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20), 0 0 0 3px rgba(232, 199, 77, 0.30);
+  cursor: grab;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ios-slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 0 5px rgba(232, 199, 77, 0.40);
+}
+
+.ios-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20), 0 0 0 3px rgba(232, 199, 77, 0.30);
+  cursor: grab;
+}
+
+/* ─── Stat pill ──────────────────────────────────────── */
+.stat-pill {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.875rem;
+  padding: 0.5rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* ─── Label / Badge ──────────────────────────────────── */
+.label-xs {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-label);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.metric-badge {
+  font-size: 0.65rem;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: var(--text-muted);
+  font-family: var(--font-poppins), sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ─── Pulse dot ──────────────────────────────────────── */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+}

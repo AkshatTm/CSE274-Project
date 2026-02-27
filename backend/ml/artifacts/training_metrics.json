@@ -1,0 +1,77 @@
+{
+  "classification": {
+    "model": "SVM",
+    "roc_auc": 1.0
+  },
+  "regression": {
+    "mae": 43.35,
+    "rmse": 55.32,
+    "r2": 0.9901,
+    "best_params": {
+      "colsample_bytree": 1.0,
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "n_estimators": 500,
+      "subsample": 0.8
+    }
+  },
+  "clustering": {
+    "optimal_k": 3,
+    "silhouette_score": 0.6812,
+    "davies_bouldin_index": 0.4543,
+    "cluster_label_map": {
+      "0": "Well Recovered",
+      "1": "High Strain",
+      "2": "Active Performer"
+    },
+    "elbow_data": {
+      "k_values": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "inertias": [
+        3920.42,
+        1323.86,
+        1210.72,
+        1129.34,
+        1067.61,
+        1016.3,
+        972.48,
+        921.15,
+        890.99
+      ],
+      "silhouette_scores": [
+        0.657,
+        0.6812,
+        0.4986,
+        0.5037,
+        0.3329,
+        0.3312,
+        0.1628,
+        0.1618,
+        0.1534
+      ]
+    }
+  },
+  "feature_columns": [
+    "resting_heart_rate",
+    "hrv_ms",
+    "sleep_hours",
+    "deep_sleep_pct",
+    "rem_sleep_pct",
+    "steps",
+    "active_minutes",
+    "stress_score",
+    "spo2_pct",
+    "body_temp_deviation"
+  ],
+  "pca_components_retained": 6,
+  "pca_explained_variance": 0.9532
+}
