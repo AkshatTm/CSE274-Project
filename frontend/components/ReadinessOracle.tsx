@@ -52,7 +52,7 @@ export default function ReadinessOracle({ data }: ReadinessOracleProps) {
             className="leading-none"
             style={{
               color: sem.color,
-              fontFamily: 'var(--font-montserrat)',
+              fontFamily: 'var(--font-heading)',
               fontSize: '6rem',
               fontWeight: 800,
               letterSpacing: '-0.04em',
@@ -63,7 +63,7 @@ export default function ReadinessOracle({ data }: ReadinessOracleProps) {
           <span
             style={{
               color: '#e2e8f0',
-              fontFamily: 'var(--font-montserrat)',
+              fontFamily: 'var(--font-heading)',
               fontSize: '6rem',
               fontWeight: 800,
               letterSpacing: '-0.04em',
@@ -82,7 +82,7 @@ export default function ReadinessOracle({ data }: ReadinessOracleProps) {
         className="mt-4 flex items-center gap-2 z-10"
         style={{
           color: sem.color,
-          fontFamily: 'var(--font-poppins)',
+          fontFamily: 'var(--font-sans)',
           fontSize: '0.9rem',
           fontWeight: 600,
           letterSpacing: '0.02em',

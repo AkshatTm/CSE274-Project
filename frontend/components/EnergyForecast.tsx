@@ -18,11 +18,11 @@ const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?:
           padding: '8px 14px',
           boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
           fontSize: 13,
-          fontFamily: 'var(--font-poppins)',
+          fontFamily: 'var(--font-sans)',
         }}
       >
         <span style={{ color: '#9ca3af', marginRight: 6, fontWeight: 500 }}>{label}</span>
-        <strong style={{ color: '#8cc63f', fontFamily: 'var(--font-montserrat)' }}>{payload[0].value} kcal</strong>
+        <strong style={{ color: '#8cc63f', fontFamily: 'var(--font-heading)' }}>{payload[0].value} kcal</strong>
       </div>
     );
   }
@@ -53,7 +53,7 @@ export default function EnergyForecast({ data }: EnergyForecastProps) {
               decimals={0}
               suffix=" kcal"
               style={{
-                fontFamily: 'var(--font-montserrat)',
+                fontFamily: 'var(--font-heading)',
                 fontSize: '2.6rem',
                 fontWeight: 800,
                 color: '#1a202c',
@@ -64,7 +64,7 @@ export default function EnergyForecast({ data }: EnergyForecastProps) {
           ) : (
             <span
               style={{
-                fontFamily: 'var(--font-montserrat)',
+                fontFamily: 'var(--font-heading)',
                 fontSize: '2.6rem',
                 fontWeight: 800,
                 color: '#e2e8f0',
@@ -91,11 +91,11 @@ export default function EnergyForecast({ data }: EnergyForecastProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
               <XAxis
                 dataKey="day"
-                tick={{ fontSize: 12, fill: '#9ca3af', fontFamily: 'var(--font-poppins)', fontWeight: 500 }}
+                tick={{ fontSize: 12, fill: '#9ca3af', fontFamily: 'var(--font-sans)', fontWeight: 500 }}
                 axisLine={false} tickLine={false}
               />
               <YAxis
-                tick={{ fontSize: 12, fill: '#9ca3af', fontFamily: 'var(--font-poppins)', fontWeight: 500 }}
+                tick={{ fontSize: 12, fill: '#9ca3af', fontFamily: 'var(--font-sans)', fontWeight: 500 }}
                 axisLine={false} tickLine={false}
               />
               <Tooltip content={<CustomTooltip />} />
@@ -118,7 +118,7 @@ export default function EnergyForecast({ data }: EnergyForecastProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-10" />
             </svg>
             <span
-              style={{ fontSize: '0.82rem', fontWeight: 500, color: '#cbd5e1', fontFamily: 'var(--font-poppins)', letterSpacing: '0.01em' }}
+              style={{ fontSize: '0.82rem', fontWeight: 500, color: '#cbd5e1', fontFamily: 'var(--font-sans)', letterSpacing: '0.01em' }}
             >
               Chart populates after synthesis
             </span>

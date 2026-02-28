@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import TelemetryInput from '@/components/TelemetryInput';
 import ReadinessOracle from '@/components/ReadinessOracle';
 import EnergyForecast from '@/components/EnergyForecast';
@@ -45,7 +46,7 @@ export default function Dashboard() {
         minHeight: '100vh',
         background: 'var(--bg-page)',
         padding: '16px',
-        fontFamily: 'var(--font-poppins)',
+        fontFamily: 'var(--font-sans)',
       }}
     >
       {/* ── PROFILE HEADER ──────────────────────────────── */}
@@ -58,11 +59,13 @@ export default function Dashboard() {
       >
         {/* Avatar */}
         <div className="relative flex-shrink-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&q=80"
             alt="User"
+            width={42}
+            height={42}
             style={{
-              width: 42, height: 42, borderRadius: '50%',
+              borderRadius: '50%',
               objectFit: 'cover',
               boxShadow: '0 0 0 2px #e2e8f0',
             }}
@@ -86,7 +89,7 @@ export default function Dashboard() {
               letterSpacing: '0.13em',
               textTransform: 'uppercase',
               color: '#9ca3af',
-              fontFamily: 'var(--font-poppins)',
+              fontFamily: 'var(--font-sans)',
               marginBottom: 1,
             }}
           >
@@ -94,7 +97,7 @@ export default function Dashboard() {
           </p>
           <h1
             style={{
-              fontFamily: 'var(--font-montserrat)',
+              fontFamily: 'var(--font-heading)',
               fontSize: '1.15rem',
               fontWeight: 800,
               color: '#1a202c',
@@ -117,7 +120,7 @@ export default function Dashboard() {
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
                   color: '#9ca3af',
-                  fontFamily: 'var(--font-poppins)',
+                  fontFamily: 'var(--font-sans)',
                 }}
               >
                 {s.label}
@@ -127,7 +130,7 @@ export default function Dashboard() {
                   fontSize: '0.88rem',
                   fontWeight: 700,
                   color: '#1a202c',
-                  fontFamily: 'var(--font-montserrat)',
+                  fontFamily: 'var(--font-heading)',
                   letterSpacing: '-0.01em',
                 }}
               >
@@ -147,7 +150,7 @@ export default function Dashboard() {
                 letterSpacing: '0.13em',
                 textTransform: 'uppercase',
                 color: '#9ca3af',
-                fontFamily: 'var(--font-poppins)',
+                fontFamily: 'var(--font-sans)',
               }}
             >
               BioSync
@@ -157,7 +160,7 @@ export default function Dashboard() {
                 fontSize: '0.68rem',
                 fontWeight: 500,
                 color: '#cbd5e1',
-                fontFamily: 'var(--font-poppins)',
+                fontFamily: 'var(--font-sans)',
               }}
             >
               Performance Engine
@@ -168,7 +171,7 @@ export default function Dashboard() {
               width: 38, height: 38, borderRadius: '0.875rem',
               background: 'linear-gradient(135deg,#8cc63f,#e8c74d)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: 'var(--font-montserrat)',
+              fontFamily: 'var(--font-heading)',
               fontWeight: 900, fontSize: '1rem',
               color: '#fff',
               boxShadow: '0 4px 12px rgba(140,198,63,0.35)',
@@ -190,7 +193,7 @@ export default function Dashboard() {
             borderRadius: '0.875rem',
             fontSize: '0.85rem',
             fontWeight: 600,
-            fontFamily: 'var(--font-poppins)',
+            fontFamily: 'var(--font-sans)',
             background: 'rgba(239,68,68,0.08)',
             border: '1px solid rgba(239,68,68,0.25)',
             color: '#ef4444',
@@ -242,16 +245,17 @@ export default function Dashboard() {
           index={4}
           style={{ gridColumn: 3, gridRow: 2, minHeight: 280, position: 'relative', overflow: 'hidden' }}
         >
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80"
             alt="Daily Activity"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.55) saturate(1.1)' }}
+            fill
+            style={{ position: 'absolute', inset: 0, objectFit: 'cover', filter: 'brightness(0.55) saturate(1.1)' }}
           />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg,transparent 20%, rgba(0,0,0,0.72) 100%)' }} />
           <div
             style={{
               position: 'absolute', top: 14, right: 14,
-              fontSize: '0.68rem', fontWeight: 600, fontFamily: 'var(--font-poppins)',
+              fontSize: '0.68rem', fontWeight: 600, fontFamily: 'var(--font-sans)',
               padding: '4px 10px', borderRadius: '99px',
               background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.2)',
               color: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(6px)',
@@ -264,7 +268,7 @@ export default function Dashboard() {
             <p className="label-xs" style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 4 }}>Recovery Protocol</p>
             <h3
               style={{
-                fontFamily: 'var(--font-montserrat)',
+                fontFamily: 'var(--font-heading)',
                 fontSize: '1.5rem',
                 fontWeight: 800,
                 color: '#ffffff',
@@ -276,7 +280,7 @@ export default function Dashboard() {
             </h3>
             <p
               style={{
-                fontFamily: 'var(--font-poppins)',
+                fontFamily: 'var(--font-sans)',
                 fontSize: '0.78rem',
                 fontWeight: 400,
                 color: 'rgba(255,255,255,0.65)',
@@ -310,7 +314,7 @@ export default function Dashboard() {
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
                     color: '#9ca3af',
-                    fontFamily: 'var(--font-poppins)',
+                    fontFamily: 'var(--font-sans)',
                     marginBottom: 3,
                   }}
                 >
@@ -321,7 +325,7 @@ export default function Dashboard() {
                     fontSize: '1.15rem',
                     fontWeight: 800,
                     color: stat.color,
-                    fontFamily: 'var(--font-montserrat)',
+                    fontFamily: 'var(--font-heading)',
                     letterSpacing: '-0.01em',
                     lineHeight: 1,
                   }}

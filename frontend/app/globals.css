@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-poppins);
-  --font-heading: var(--font-montserrat);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
 }
 
 /* ─── Design Tokens ─────────────────────────────────── */
@@ -41,7 +41,7 @@ body {
   min-height: 100vh;
   background: var(--bg-page);
   color: var(--text-body);
-  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -135,7 +135,7 @@ body {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--text-label);
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
 
 .metric-badge {
@@ -145,7 +145,7 @@ body {
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
   color: var(--text-muted);
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-weight: 600;
