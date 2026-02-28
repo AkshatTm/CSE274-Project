@@ -1,6 +1,7 @@
 'use client';
 
 import BentoCard from './BentoCard';
+import { useMemo } from 'react';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import type { PredictionResponse } from '@/lib/api';
 
@@ -9,26 +10,26 @@ interface ClusterArchetypeProps { data: PredictionResponse | null; }
 const CLUSTER_COLORS = ['#8cc63f', '#e8c74d', '#f87171', '#60a5fa', '#a78bfa'];
 const CLUSTER_NAMES = ['Elite Athlete', 'Active Optimizer', 'Recovery Zone', 'Baseline', 'Adaptive'];
 
-export default function ClusterArchetype({ data }: ClusterArchetypeProps) {
-  const generateClusterData = () => {
-    if (!data) return [];
-    const points: { x: number; y: number; cluster: number }[] = [];
-    for (let c = 0; c < 3; c++) {
-      const cx = 30 + c * 30;
-      const cy = 40 + (c % 2) * 25;
-      for (let i = 0; i < 14; i++) {
-        points.push({ x: cx + (Math.random() - 0.5) * 18, y: cy + (Math.random() - 0.5) * 18, cluster: c });
-      }
+const generateClusterData = (data: PredictionResponse | null) => {
+  if (!data) return [];
+  const points: { x: number; y: number; cluster: number }[] = [];
+  for (let c = 0; c < 3; c++) {
+    const cx = 30 + c * 30;
+    const cy = 40 + (c % 2) * 25;
+    for (let i = 0; i < 14; i++) {
+      points.push({ x: cx + (Math.random() - 0.5) * 18, y: cy + (Math.random() - 0.5) * 18, cluster: c });
     }
-    points.push({
-      x: 30 + data.assigned_biometric_cluster * 30 + (Math.random() - 0.5) * 4,
-      y: 40 + (data.assigned_biometric_cluster % 2) * 25 + (Math.random() - 0.5) * 4,
-      cluster: data.assigned_biometric_cluster,
-    });
-    return points;
-  };
+  }
+  points.push({
+    x: 30 + data.assigned_biometric_cluster * 30 + (Math.random() - 0.5) * 4,
+    y: 40 + (data.assigned_biometric_cluster % 2) * 25 + (Math.random() - 0.5) * 4,
+    cluster: data.assigned_biometric_cluster,
+  });
+  return points;
+};
 
-  const scatterData = generateClusterData();
+export default function ClusterArchetype({ data }: ClusterArchetypeProps) {
+  const scatterData = useMemo(() => generateClusterData(data), [data]);
   const clusterColor = data ? CLUSTER_COLORS[data.assigned_biometric_cluster % CLUSTER_COLORS.length] : '#cbd5e1';
 
   return (
@@ -39,7 +40,7 @@ export default function ClusterArchetype({ data }: ClusterArchetypeProps) {
         <>
           <p
             style={{
-              fontFamily: 'var(--font-montserrat)',
+              fontFamily: 'var(--font-heading)',
               fontSize: '1.3rem',
               fontWeight: 800,
               color: clusterColor,
@@ -51,7 +52,7 @@ export default function ClusterArchetype({ data }: ClusterArchetypeProps) {
           </p>
           <p
             style={{
-              fontFamily: 'var(--font-poppins)',
+              fontFamily: 'var(--font-sans)',
               fontSize: '0.78rem',
               fontWeight: 500,
               color: '#9ca3af',
@@ -68,12 +69,12 @@ export default function ClusterArchetype({ data }: ClusterArchetypeProps) {
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
                 <XAxis
                   type="number" dataKey="x" name="PC1"
-                  tick={{ fontSize: 11, fill: '#9ca3af', fontFamily: 'var(--font-poppins)', fontWeight: 500 }}
+                  tick={{ fontSize: 11, fill: '#9ca3af', fontFamily: 'var(--font-sans)', fontWeight: 500 }}
                   axisLine={false} tickLine={false}
                 />
                 <YAxis
                   type="number" dataKey="y" name="PC2"
-                  tick={{ fontSize: 11, fill: '#9ca3af', fontFamily: 'var(--font-poppins)', fontWeight: 500 }}
+                  tick={{ fontSize: 11, fill: '#9ca3af', fontFamily: 'var(--font-sans)', fontWeight: 500 }}
                   axisLine={false} tickLine={false}
                 />
                 <Tooltip
@@ -82,7 +83,7 @@ export default function ClusterArchetype({ data }: ClusterArchetypeProps) {
                     border: '1px solid #e2e8f0',
                     borderRadius: '0.75rem',
                     fontSize: 12,
-                    fontFamily: 'var(--font-poppins)',
+                    fontFamily: 'var(--font-sans)',
                     color: '#374151',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
                   }}
@@ -108,7 +109,7 @@ export default function ClusterArchetype({ data }: ClusterArchetypeProps) {
                 color: clusterColor,
                 background: `${clusterColor}18`,
                 border: `1px solid ${clusterColor}33`,
-                fontFamily: 'var(--font-poppins)',
+                fontFamily: 'var(--font-sans)',
                 letterSpacing: '0.04em',
               }}
             >
@@ -122,7 +123,7 @@ export default function ClusterArchetype({ data }: ClusterArchetypeProps) {
             <circle cx="9" cy="9" r="3" /><circle cx="15" cy="15" r="3" /><circle cx="16" cy="8" r="2" />
           </svg>
           <span
-            style={{ fontSize: '0.82rem', fontWeight: 500, color: '#cbd5e1', fontFamily: 'var(--font-poppins)', letterSpacing: '0.01em' }}
+            style={{ fontSize: '0.82rem', fontWeight: 500, color: '#cbd5e1', fontFamily: 'var(--font-sans)', letterSpacing: '0.01em' }}
           >
             Awaiting synthesis
           </span>

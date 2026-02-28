@@ -52,7 +52,7 @@ function IosSlider({ slider, value, onChange }: {
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             color: '#6b7280',
-            fontFamily: 'var(--font-poppins)',
+            fontFamily: 'var(--font-sans)',
           }}
         >
           {slider.label}
@@ -65,8 +65,8 @@ function IosSlider({ slider, value, onChange }: {
             fontSize: '0.82rem',
             fontWeight: 700,
             color: slider.color,
-            fontFamily: 'var(--font-montserrat)',
-            tabularNums: 'true',
+            fontFamily: 'var(--font-heading)',
+            fontVariantNumeric: 'tabular-nums',
             letterSpacing: '0.02em',
           }}
         >
@@ -88,6 +88,11 @@ function IosSlider({ slider, value, onChange }: {
           max={slider.max}
           step={slider.step}
           value={value}
+          aria-label={slider.label}
+          aria-valuenow={value}
+          aria-valuemin={slider.min}
+          aria-valuemax={slider.max}
+          aria-valuetext={`${displayVal}${slider.unit}`}
           onChange={(e) => onChange(parseFloat(e.target.value))}
           className="ios-slider absolute inset-x-0"
         />
@@ -118,7 +123,7 @@ export default function TelemetryInput({ onSubmit, isLoading }: TelemetryInputPr
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: '#9ca3af',
-            fontFamily: 'var(--font-poppins)',
+            fontFamily: 'var(--font-sans)',
           }}
         >
           Biometric Telemetry
@@ -127,7 +132,7 @@ export default function TelemetryInput({ onSubmit, isLoading }: TelemetryInputPr
 
       <h2
         style={{
-          fontFamily: 'var(--font-montserrat)',
+          fontFamily: 'var(--font-heading)',
           fontSize: '1.75rem',
           fontWeight: 800,
           color: '#1a202c',
@@ -160,7 +165,7 @@ export default function TelemetryInput({ onSubmit, isLoading }: TelemetryInputPr
             ? '#e2e8f0'
             : 'linear-gradient(135deg, #8cc63f 0%, #e8c74d 100%)',
           color: isLoading ? '#9ca3af' : '#1a202c',
-          fontFamily: 'var(--font-montserrat)',
+          fontFamily: 'var(--font-heading)',
           fontSize: '0.78rem',
           letterSpacing: '0.12em',
           fontWeight: 700,
